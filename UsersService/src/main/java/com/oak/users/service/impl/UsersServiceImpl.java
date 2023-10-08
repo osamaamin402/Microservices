@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.oak.users.entities.Users;
+import com.oak.users.entities.User;
 import com.oak.users.repositories.UsersRepository;
 import com.oak.users.service.UsersService;
 
@@ -17,13 +17,13 @@ public class UsersServiceImpl implements UsersService {
 	UsersRepository repository;
 
 	@Override
-	public List<Users> getUsers() throws Exception {
+	public List<User> getUsers() throws Exception {
 		// TODO Auto-generated method stub
 		return repository.findAll();
 	}
 
 	@Override
-	public Users addUsers(Users users) throws Exception {
+	public User addUsers(User users) throws Exception {
 		// TODO Auto-generated method stub
 		users.setUserId(UUID.randomUUID().toString());
 		return repository.save(users);

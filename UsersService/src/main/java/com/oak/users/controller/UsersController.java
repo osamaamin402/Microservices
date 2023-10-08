@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oak.users.entities.Users;
+import com.oak.users.entities.User;
 import com.oak.users.service.UsersService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("users")
@@ -23,7 +25,7 @@ public class UsersController {
 
 	@GetMapping
 	public ResponseEntity getUers() {
-		List<Users> users = null;
+		List<User> users = null;
 		try {
 			users = usersService.getUsers();
 		} catch (Exception e) {
@@ -33,7 +35,7 @@ public class UsersController {
 	}
 
 	@PostMapping("add")
-	public ResponseEntity addUers(@RequestBody Users users) {
+	public ResponseEntity addUers(@Valid @RequestBody User users) {
 
 		try {
 			return new ResponseEntity(usersService.addUsers(users), HttpStatus.OK);

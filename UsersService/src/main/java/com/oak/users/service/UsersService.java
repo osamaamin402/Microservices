@@ -2,11 +2,11 @@ package com.oak.users.service;
 
 import java.util.List;
 
-import com.oak.users.entities.Users;
+import com.oak.users.entities.User;
 
 public interface UsersService {
 
-	public List<Users> getUsers()throws Exception;
+	public List<User> getUsers()throws Exception;
 
-	public Users addUsers(Users users)throws Exception;
+	public User addUsers(User users)throws Exception;
 }
